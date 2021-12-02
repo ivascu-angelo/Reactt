@@ -1,0 +1,33 @@
+.header {
+  width: 80%;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #1f702a;
+  padding: 0 10%;
+}
+
+.logo {
+  font-size: 3rem;
+  color: white;
+  font-weight: bold;
+}
+
+.header ul {
+  list-style: none;
+  margin-right: 10;
+  padding: 0;
+  display: flex;
+  align-items: baseline;
+}
+
+.header li {
+  margin-left: 3rem;
+}
+
+.links {
+  font-size: 1.5rem;
+  color: white;
+  font-weight: bold;
+}

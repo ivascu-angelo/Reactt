@@ -1,23 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import SingleHeader from "./components/SingleHeader";
+import { Route } from "react-router";
+import { Routes } from "react-router";
+import HomePage from "./pages/HomePage";
+import ProfilePage from "./pages/ProfilePage";
+import { useState } from "react";
 function App() {
+  const [userInfo, setUserInfo] = useState({});
+  const [errorMessage, setErrorMessage] = useState(" ");
+  // const [localStorage, setLocalStorage] = useState({});
+
+  // const storagePasser = (storageData) => {
+  //   setLocalStorage(storageData);
+  // };
+  const dataPasser = (userData) => {
+    setUserInfo(userData);
+  };
+
+  const handleEmpty = () => {
+    console.log(errorMessage);
+    setErrorMessage("Empty age or name");
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <SingleHeader />
+      <main>
+        <Routes>
+          <Route
+            path="/home-page"
+            element={<HomePage saver={localStorage} data={userInfo} />}
+          />
+          <Route
+            path="/my-profile"
+            element={
+              <ProfilePage
+                errorProp={handleEmpty}
+                getAgeAndNameHandler={dataPasser}
+              />
+            }
+          />
+        </Routes>
+        <div>{errorMessage}</div>
+      </main>
     </div>
   );
 }

@@ -1,0 +1,42 @@
+.body {
+  align-content: center;
+  position: absolute;
+  top: 10%;
+  left: 38%;
+
+  width: 500px;
+  height: 500px;
+}
+
+.card {
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  margin-top: -50px;
+  margin-left: -50px;
+  width: 500px;
+  height: 500px;
+}
+.btn:hover {
+  background-color: #33c292;
+  border-color: #1da867;
+}
+
+.btn--alt {
+  background-color: transparent;
+  color: #0a9443;
+}
+.btn {
+  font: inherit;
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: #5c9b76;
+  color: white;
+  border: 1px solid #41347c;
+  margin: 0 1rem;
+}
