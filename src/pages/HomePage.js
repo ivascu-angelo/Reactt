@@ -14,7 +14,6 @@ const HomePage = (props) => {
   //     console.log("empty data in profile");
   //   }
   // IF AFTER REFRESH STILL NO PROPS KEEP THE PREVIOUS ONE
-  console.log("da");
   return (
     <Card>
       <section>
