@@ -8,13 +8,19 @@ import { useState } from "react";
 function App() {
   const [userInfo, setUserInfo] = useState({});
   const [errorMessage, setErrorMessage] = useState(" ");
-  // const [localStorage, setLocalStorage] = useState({});
-
-  // const storagePasser = (storageData) => {
-  //   setLocalStorage(storageData);
-  // };
+  const [parsedUserInfo, setParsedUserInfo] = useState({});
   const dataPasser = (userData) => {
     setUserInfo(userData);
+  };
+
+  const localStorageParser = (userData) => {
+    setParsedUserInfo(userData);
+    localStorage.setItem("theResults", JSON.stringify(userData));
+
+    let results = localStorage.getItem("theResults");
+
+    const parsedResults = JSON.parse(results);
+    console.log(parsedResults);
   };
 
   const handleEmpty = () => {
@@ -29,7 +35,7 @@ function App() {
         <Routes>
           <Route
             path="/home-page"
-            element={<HomePage saver={localStorage} data={userInfo} />}
+            element={<HomePage data={userInfo} theParse={parsedUserInfo} />}
           />
           <Route
             path="/my-profile"
@@ -37,6 +43,7 @@ function App() {
               <ProfilePage
                 errorProp={handleEmpty}
                 getAgeAndNameHandler={dataPasser}
+                parseHandler={localStorageParser}
               />
             }
           />

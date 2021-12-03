@@ -8,7 +8,7 @@ const ProfilePage = (props) => {
         <UserForm
           getNameAndAge={props.getAgeAndNameHandler}
           errorThrow2={props.errorProp}
-          //   getLocalStorage2={props.getLocalStorage1}
+          parseHandler2={props.parseHandler}
         />
         <div></div>
       </section>

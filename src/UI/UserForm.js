@@ -15,7 +15,7 @@ const UserForm = (props) => {
       age: enteredAge,
     };
     props.getNameAndAge(enteredNameAndAge);
-
+    props.parseHandler2(enteredNameAndAge);
     if (!enteredNameAndAge.name || !enteredNameAndAge.age) {
       props.errorThrow2();
     }

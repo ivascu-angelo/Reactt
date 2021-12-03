@@ -1,19 +1,9 @@
 import classes from "./HomePage.module.css";
 import Card from "../UI/Card";
-import { useEffect } from "react";
-const HomePage = (props) => {
-  let results = localStorage.getItem("theResults" || {});
-  console.log(results);
-  JSON.parse(results);
-  localStorage.setItem("theResults", JSON.stringify(props.data));
 
-  useEffect(() => {
-    localStorage.setItem("theResults", JSON.stringify(props.data));
-  }, [props.data]);
-  //   if (!results) {
-  //     console.log("empty data in profile");
-  //   }
-  // IF AFTER REFRESH STILL NO PROPS KEEP THE PREVIOUS ONE
+const HomePage = (props) => {
+  let results = localStorage.getItem("theResults");
+  console.log(results);
   return (
     <Card>
       <section>
@@ -24,8 +14,8 @@ const HomePage = (props) => {
               <p>My name is :{props.data.name}</p>
               <p>My age is:{props.data.age}</p>
             </div>
-            <div>Saved Data is: {results}</div>
-
+            <div>Saved name is: {results}</div>
+            <div>Saved age is : {results}</div>
             <p>
               Will try to show here the data the user entered in the Profile
               page
